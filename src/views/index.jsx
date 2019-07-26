@@ -7,12 +7,14 @@ import myPicture1 from '../assets/images/me1.jpg'
 import github from '../assets/images/github-sign.png'
 import linkedin from '../assets/images/linkedin-logo.png'
 import twitter from '../assets/images/twitter-logo.png'
+import jamaica from '../assets/images/jamaican.jpg'
+import bob from '../assets/audio/bob.mp3'
 import keywords from '../assets/keywords/keywords'
 import Sky from 'react-sky';
 class Index extends Component {
     constructor(props) {
         super(props);
-        this.state = { show: false }
+        this.state = { show: false, lang: 'us' }
     }
     setShow = (show) => this.setState({ show: show })
     handleClose = () => this.setShow(false);
@@ -70,14 +72,28 @@ class Index extends Component {
         //console.log(res)
         return res
     }
+    handleWordCloudJamaica = () => {
+        return { 0: jamaica }
+    }
+    jamaica = () => {
+        const jamaica = document.querySelector('#bob')
+        console.log('paused', jamaica.paused)
+        if (jamaica.paused) {
+            jamaica.play()
+            this.setState({ lang: 'jam' })
+        } else {
+            jamaica.pause()
+            this.setState({ lang: 'us' })
+        }
+    }
     render() {
-        //console.log(this.state)
+        console.log('return', this.state)
         return (
             <Container fluid>
                 {this.renderRedirect()}
                 <Sky
                     className='border'
-                    images={this.handleWordCloud()}
+                    images={this.state.lang === 'us' ? this.handleWordCloud() : this.handleWordCloudJamaica()}
                     how={100} /* You have to pass a number so Sky will render that amount of images chosen randomly from the object you passed in the previous step */
                     time={60} /* time of the animation. Dfaults at 20s */
                     size={'32px'} /* size of the rendered images. Defaults at 150px */
@@ -104,7 +120,7 @@ class Index extends Component {
                                 </Row>
                                 <Row>
                                     <Col className='mx-auto text-center text-capitalize text-monospace'>
-                                        <Row className='pr-3 pl-3' style={{ fontSize: '1.5rem' }}>
+                                        <Row className='pr-3 pl-3' style={{ fontSize: '1.33rem' }}>
                                             <Col sm={4}></Col>
                                             <Col sm={4}></Col>
                                             <Col
@@ -124,7 +140,7 @@ class Index extends Component {
                                                 <span className='ml-3'>Portfolio</span>
                                             </Col>
                                         </Row>
-                                        <Row className='pr-3 pl-3 pb-3' style={{ fontSize: '1.5rem' }}>
+                                        <Row className='pr-3 pl-3 pb-3' style={{ fontSize: '1.33rem' }}>
                                             <Col className='border'>Highlight A</Col>
                                             <Col className='border'>Highlight B</Col>
                                             <Col className='border'>Highlight C</Col>
@@ -147,7 +163,7 @@ class Index extends Component {
                                                 </Row>
                                                 <Row>
                                                     <Col>
-                                                        <h6>I go to all the major hackathons and occasional meetups. I gain alot of exposure to new software and tecniques.</h6>
+                                                        <h6>I go to all the major hackathons and occasional meetups. I gain alot of exposure to new software and techniques.</h6>
                                                     </Col>
                                                 </Row>
                                                 <Row>
@@ -174,7 +190,7 @@ class Index extends Component {
                                 </Row>
                                 <Row>
                                     <Col className='mx-auto text-center text-capitalize text-monospace'>
-                                        <Row className='p-3' style={{ fontSize: '1.5rem' }}>
+                                        <Row className='p-3' style={{ fontSize: '1.33rem' }}>
                                             <Col sm={4} className='border text-center' onMouseEnter={this.handleOnHover} onMouseLeave={this.handleOffHover} onClick={this.handleOnClick} data-link='/github'>
                                                 <img src={github} alt='github' style={{ filter: 'invert(1)', height: '20px', verticalAlign: 'middle' }} className='img-fluid' />
                                                 <span className='ml-3'>Github</span>
@@ -199,6 +215,13 @@ class Index extends Component {
                                                 </i>
                                                 <span className='ml-3'>Credits</span>
                                             </Col>
+                                            <Col sm={4}></Col>
+                                            <Col
+                                                sm={4}
+                                                className='p-1'
+                                            >
+                                                <img alt='jamaican' src={jamaica} className='img-fluid shadow-lg' style={{ height: '28px' }} onClick={this.jamaica} />
+                                            </Col>
                                         </Row>
                                     </Col>
                                 </Row>
@@ -213,6 +236,11 @@ class Index extends Component {
                         </Modal.Header>
                         <Modal.Body>{this.handleCredits()}</Modal.Body>
                     </Modal>
+                </Row>
+                <Row>
+                    <Col>
+                        <audio id='bob' src={bob}></audio>
+                    </Col>
                 </Row>
             </Container>
         );
