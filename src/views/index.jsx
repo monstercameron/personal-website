@@ -3,12 +3,12 @@ import { Container, Row, Col, Modal } from 'react-bootstrap'
 import { Redirect } from 'react-router-dom'
 import history from '../history'
 import credits from '../assets/credits/credits'
-import myPicture from '../assets/images/mystiq.jpg'
 import myPicture1 from '../assets/images/me1.jpg'
 import github from '../assets/images/github-sign.png'
 import linkedin from '../assets/images/linkedin-logo.png'
 import twitter from '../assets/images/twitter-logo.png'
-import TagCloud from 'react-tag-cloud';
+import keywords from '../assets/keywords/keywords'
+import Sky from 'react-sky';
 class Index extends Component {
     constructor(props) {
         super(props);
@@ -21,7 +21,7 @@ class Index extends Component {
         //console.log(e.target.childNodes[0])
         e.target.style.backgroundColor = 'white'
         e.target.style.color = 'black'
-        if (e.target.childNodes[0].tagName === 'IMG') {
+        if (e.target.childNodes[0] && e.target.childNodes[0].tagName === 'IMG') {
             e.target.childNodes[0].style.filter = 'invert(0)'
         }
     }
@@ -29,7 +29,7 @@ class Index extends Component {
         //console.log(e.type)
         e.target.style.backgroundColor = ''
         e.target.style.color = 'white'
-        if (e.target.childNodes[0].tagName === 'IMG') {
+        if (e.target.childNodes[0] && e.target.childNodes[0].tagName === 'IMG') {
             e.target.childNodes[0].style.filter = 'invert(1)'
         }
     }
@@ -62,23 +62,27 @@ class Index extends Component {
             return <Redirect to={this.state.target} />
         }
     }
-    componentDidMount() {
-        setInterval(() => {
-          this.forceUpdate();
-        }, 3000);
-      }
     handleWordCloud = () => {
-        return (
-            <div>
-                <img src={twitter} alt='github' style={{ filter: 'invert(1)', height: '20px', verticalAlign: 'middle' }} className='img-fluid' />
-            </div>
-        )
+        let res = {}
+        keywords.map((keyword, index) => {
+            return res[index] = keyword.image
+        })
+        //console.log(res)
+        return res
     }
     render() {
-        console.log(this.state)
+        //console.log(this.state)
         return (
             <Container fluid>
                 {this.renderRedirect()}
+                <Sky
+                    className='border'
+                    images={this.handleWordCloud()}
+                    how={100} /* You have to pass a number so Sky will render that amount of images chosen randomly from the object you passed in the previous step */
+                    time={60} /* time of the animation. Dfaults at 20s */
+                    size={'32px'} /* size of the rendered images. Defaults at 150px */
+                    background={'palettedvioletred'} /* color of background. Defaults to none */
+                />
                 <Row>
                     <Col>
                         <Row>
@@ -86,24 +90,16 @@ class Index extends Component {
                                 sm={8}
                                 className='rounded p-3 mt-2 mb-5 mx-auto text-white'
                                 style={{ backgroundColor: 'rgba(50,50,255,.00)' }}>
-                                <Row>
-                                    <Col style={{ overflow: 'hidden', height: '400px' }}>
-                                        <TagCloud
-                                            spiral={'archimedean'}
-                                            className='border tag-cloud'
-                                            style={{
-                                                fontFamily: 'sans-serif',
-                                                fontSize: 30,
-                                                fontWeight: 'bold',
-                                                fontStyle: 'italic',
-                                                color: 'white',
-                                                padding: 5,
-                                                width: '100%',
-                                                height: '100%'
-                                            }}>
-                                            {this.handleWordCloud()}
-                                        </TagCloud>
-                                        {/* <img src={myPicture} alt='Me' className='d-block img-fluid' /> */}
+                                <Row className='p-3'>
+                                    <Col
+                                        className='border p-3'
+                                        style={{ backgroundColor: 'rgba(255,255,255,)' }}>
+                                        <h1 style={{ fontFamily: 'Great Vibes, cursive', fontSize: '3rem' }}>
+                                            Earl Cameron
+                                        </h1>
+                                        <h5>
+                                            Full Stack Developer
+                                        </h5>
                                     </Col>
                                 </Row>
                                 <Row>
@@ -131,9 +127,9 @@ class Index extends Component {
                                     </Col>
                                 </Row>
                                 <Row>
-                                    <Col className='p-3 ml-3 mr-3 text-dark' style={{ backgroundColor: 'white' }}>
+                                    <Col className='p-3 ml-3 mr-3 text-dark' style={{ backgroundColor: 'rgba(255,255,255,.75)' }}>
                                         <Row>
-                                            <Col>
+                                            <Col sm={10} className=''>
                                                 <Row>
                                                     <Col>
                                                         <h2>About Me</h2>
@@ -155,7 +151,7 @@ class Index extends Component {
                                                     </Col>
                                                 </Row>
                                             </Col>
-                                            <Col>
+                                            <Col sm={2} className=''>
                                                 <img alt='also me' src={myPicture1} className='img-fluid img-thumbnail' />
                                             </Col>
                                         </Row>
@@ -166,7 +162,7 @@ class Index extends Component {
                                         </Row>
                                         <Row>
                                             <Col >
-                                                <h6>I am always up for a challenge, and you can reach out to me directly vis a vis my email, <a href='mailto:mr.e.cameron@gmail.com'>mr.e.cameron@gmail.com</a></h6>
+                                                <h6>I am always up for a challenge, and you can reach out to me directly via email, <a href='mailto:mr.e.cameron@gmail.com'>mr.e.cameron@gmail.com</a></h6>
                                             </Col>
                                         </Row>
                                     </Col>
@@ -186,6 +182,18 @@ class Index extends Component {
                                                 <img src={twitter} alt='github' style={{ filter: 'invert(1)', height: '20px', verticalAlign: 'middle' }} className='img-fluid' />
                                                 <span className='ml-3'>Twitter</span>
                                             </Col>
+                                            <Col
+                                                sm={4}
+                                                className='border'
+                                                onClick={this.handleShow}
+                                                onMouseEnter={this.handleOnHover}
+                                                onMouseLeave={this.handleOffHover}
+                                            >
+                                                <i className="material-icons" style={{ verticalAlign: 'middle' }}>
+                                                    fullscreen
+                                                </i>
+                                                <span className='ml-3'>Credits</span>
+                                            </Col>
                                         </Row>
                                     </Col>
                                 </Row>
@@ -200,15 +208,6 @@ class Index extends Component {
                         </Modal.Header>
                         <Modal.Body>{this.handleCredits()}</Modal.Body>
                     </Modal>
-                </Row>
-                <Row>
-                    <Col
-                        sm={1}
-                        className='border text-center text-white m-1 p-1'
-                        onClick={this.handleShow}
-                    >
-                        Credits
-                    </Col>
                 </Row>
             </Container>
         );
