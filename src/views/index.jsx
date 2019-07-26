@@ -1,12 +1,14 @@
 import React, { Component } from 'react';
-import { Container, Row, Col, Button, Modal } from 'react-bootstrap'
+import { Container, Row, Col, Modal } from 'react-bootstrap'
 import { Redirect } from 'react-router-dom'
 import history from '../history'
 import credits from '../assets/credits/credits'
 import myPicture from '../assets/images/mystiq.jpg'
+import myPicture1 from '../assets/images/me1.jpg'
 import github from '../assets/images/github-sign.png'
 import linkedin from '../assets/images/linkedin-logo.png'
 import twitter from '../assets/images/twitter-logo.png'
+import TagCloud from 'react-tag-cloud';
 class Index extends Component {
     constructor(props) {
         super(props);
@@ -60,6 +62,18 @@ class Index extends Component {
             return <Redirect to={this.state.target} />
         }
     }
+    componentDidMount() {
+        setInterval(() => {
+          this.forceUpdate();
+        }, 3000);
+      }
+    handleWordCloud = () => {
+        return (
+            <div>
+                <img src={twitter} alt='github' style={{ filter: 'invert(1)', height: '20px', verticalAlign: 'middle' }} className='img-fluid' />
+            </div>
+        )
+    }
     render() {
         console.log(this.state)
         return (
@@ -73,8 +87,23 @@ class Index extends Component {
                                 className='rounded p-3 mt-2 mb-5 mx-auto text-white'
                                 style={{ backgroundColor: 'rgba(50,50,255,.00)' }}>
                                 <Row>
-                                    <Col style={{ overflow: 'hidden' , height:'400px'}}>
-                                        <img src={myPicture} alt='Me' className='d-block img-fluid' />
+                                    <Col style={{ overflow: 'hidden', height: '400px' }}>
+                                        <TagCloud
+                                            spiral={'archimedean'}
+                                            className='border tag-cloud'
+                                            style={{
+                                                fontFamily: 'sans-serif',
+                                                fontSize: 30,
+                                                fontWeight: 'bold',
+                                                fontStyle: 'italic',
+                                                color: 'white',
+                                                padding: 5,
+                                                width: '100%',
+                                                height: '100%'
+                                            }}>
+                                            {this.handleWordCloud()}
+                                        </TagCloud>
+                                        {/* <img src={myPicture} alt='Me' className='d-block img-fluid' /> */}
                                     </Col>
                                 </Row>
                                 <Row>
@@ -102,17 +131,42 @@ class Index extends Component {
                                     </Col>
                                 </Row>
                                 <Row>
-                                    <Col className='p-5 ml-3 mr-3 text-dark' style={{ backgroundColor: 'white' }}>
+                                    <Col className='p-3 ml-3 mr-3 text-dark' style={{ backgroundColor: 'white' }}>
                                         <Row>
                                             <Col>
-                                                <h3>About Me:</h3>
+                                                <Row>
+                                                    <Col>
+                                                        <h2>About Me</h2>
+                                                    </Col>
+                                                </Row>
+                                                <Row>
+                                                    <Col>
+                                                        <h6>I like to build things. I enjoy thinking about how systems should work, designing each component and how they function in concert with each other. </h6>
+                                                    </Col>
+                                                </Row>
+                                                <Row>
+                                                    <Col>
+                                                        <h6>I go to all the major hackathons and occasional meetups. I gain alot of exposure to new software and tecniques.</h6>
+                                                    </Col>
+                                                </Row>
+                                                <Row>
+                                                    <Col>
+                                                        <h6>I have completed the Launchcode bootcamp which, in addition to self study, has given me a great foundation for Web technologies.</h6>
+                                                    </Col>
+                                                </Row>
+                                            </Col>
+                                            <Col>
+                                                <img alt='also me' src={myPicture1} className='img-fluid img-thumbnail' />
                                             </Col>
                                         </Row>
                                         <Row>
-                                            <Col>
-                                                <h4>
-
-                                                </h4>
+                                            <Col className='mt-3'>
+                                                <h6>I am a quick study, love to learn and employ new ideas and techniqes, and most importantly I am passionate and dedicated to my craft.</h6>
+                                            </Col>
+                                        </Row>
+                                        <Row>
+                                            <Col >
+                                                <h6>I am always up for a challenge, and you can reach out to me directly vis a vis my email, <a href='mailto:mr.e.cameron@gmail.com'>mr.e.cameron@gmail.com</a></h6>
                                             </Col>
                                         </Row>
                                     </Col>
@@ -145,11 +199,6 @@ class Index extends Component {
                             <Modal.Title>Attribution</Modal.Title>
                         </Modal.Header>
                         <Modal.Body>{this.handleCredits()}</Modal.Body>
-                        <Modal.Footer>
-                            <Button variant="secondary" onClick={this.handleClose}>
-                                Close
-                            </Button>
-                        </Modal.Footer>
                     </Modal>
                 </Row>
                 <Row>
