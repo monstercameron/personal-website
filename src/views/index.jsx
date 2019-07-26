@@ -104,7 +104,7 @@ class Index extends Component {
                                 </Row>
                                 <Row>
                                     <Col className='mx-auto text-center text-capitalize text-monospace'>
-                                        <Row className='p-3' style={{ fontSize: '1.5rem' }}>
+                                        <Row className='pr-3 pl-3' style={{ fontSize: '1.5rem' }}>
                                             <Col sm={4}></Col>
                                             <Col sm={4}></Col>
                                             <Col
@@ -123,6 +123,11 @@ class Index extends Component {
                                                 </i>
                                                 <span className='ml-3'>Portfolio</span>
                                             </Col>
+                                        </Row>
+                                        <Row className='pr-3 pl-3 pb-3' style={{ fontSize: '1.5rem' }}>
+                                            <Col className='border'>Highlight A</Col>
+                                            <Col className='border'>Highlight B</Col>
+                                            <Col className='border'>Highlight C</Col>
                                         </Row>
                                     </Col>
                                 </Row>
