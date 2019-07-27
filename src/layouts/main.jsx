@@ -1,24 +1,38 @@
-import React, { Component } from 'react';
+import React, { Component } from 'react'
 import { Container, Row, Col, Modal } from 'react-bootstrap'
 import { Redirect } from 'react-router-dom'
 import history from '../history'
 import credits from '../assets/credits/credits'
-import myPicture1 from '../assets/images/me1.jpg'
 import github from '../assets/images/github-sign.png'
 import linkedin from '../assets/images/linkedin-logo.png'
 import twitter from '../assets/images/twitter-logo.png'
 import jamaica from '../assets/images/jamaican.jpg'
 import bob from '../assets/audio/bob.mp3'
 import keywords from '../assets/keywords/keywords'
-import Sky from 'react-sky';
-class Index extends Component {
+import Sky from 'react-sky'
+import { Shift } from 'ambient-cbg' //Coalesce, Shift, Swirl, Aurora,  Pipeline
+class Main extends Component {
     constructor(props) {
         super(props);
-        this.state = { show: false, lang: 'us' }
+        this.state = { show: false, lang: 'us', pathname: '/portfolio' }
     }
     setShow = (show) => this.setState({ show: show })
     handleClose = () => this.setShow(false);
     handleShow = () => this.setShow(true);
+    componentWillMount = () => {
+        this.navigationHandler()
+    }
+    navigationHandler = () => {
+        const { pathname } = window.location
+        if (pathname === '/') {
+            this.setState({ pathname: '/portfolio' })
+        } else {
+            this.setState({ pathname: '/' })
+        }
+    }
+    navigationButtonHandler = () => {
+        return this.state.pathname === '/' ? 'About Me' : 'Portfolio'
+    }
     handleOnHover = (e) => {
         //console.log(e.target.childNodes[0])
         e.target.style.backgroundColor = 'white'
@@ -87,9 +101,10 @@ class Index extends Component {
         }
     }
     render() {
-        console.log('return', this.state)
+        //console.log('return', this.state)
         return (
             <Container fluid>
+                <Shift />
                 {this.renderRedirect()}
                 <Sky
                     className='border'
@@ -129,7 +144,7 @@ class Index extends Component {
                                                 onMouseEnter={this.handleOnHover}
                                                 onMouseLeave={this.handleOffHover}
                                                 onClick={this.handleOnClick}
-                                                data-link='/portfolio'
+                                                data-link={this.state.pathname}
                                             >
                                                 <i
                                                     className="material-icons"
@@ -137,7 +152,7 @@ class Index extends Component {
                                                 >
                                                     code
                                                 </i>
-                                                <span className='ml-3'>Portfolio</span>
+                                                <span className='ml-3'>{this.navigationButtonHandler()}</span>
                                             </Col>
                                         </Row>
                                         <Row className='pr-3 pl-3 pb-3' style={{ fontSize: '1.33rem' }}>
@@ -147,47 +162,7 @@ class Index extends Component {
                                         </Row>
                                     </Col>
                                 </Row>
-                                <Row>
-                                    <Col className='p-3 ml-3 mr-3 text-dark' style={{ backgroundColor: 'rgba(255,255,255,.75)' }}>
-                                        <Row>
-                                            <Col sm={10} className=''>
-                                                <Row>
-                                                    <Col>
-                                                        <h2>About Me</h2>
-                                                    </Col>
-                                                </Row>
-                                                <Row>
-                                                    <Col>
-                                                        <h6>I like to build things. I enjoy thinking about how systems should work, designing each component and how they function in concert with each other. </h6>
-                                                    </Col>
-                                                </Row>
-                                                <Row>
-                                                    <Col>
-                                                        <h6>I go to all the major hackathons and occasional meetups. I gain alot of exposure to new software and techniques.</h6>
-                                                    </Col>
-                                                </Row>
-                                                <Row>
-                                                    <Col>
-                                                        <h6>I have completed the Launchcode bootcamp which, in addition to self study, has given me a great foundation for Web technologies.</h6>
-                                                    </Col>
-                                                </Row>
-                                            </Col>
-                                            <Col sm={2} className=''>
-                                                <img alt='also me' src={myPicture1} className='img-fluid img-thumbnail' />
-                                            </Col>
-                                        </Row>
-                                        <Row>
-                                            <Col className='mt-3'>
-                                                <h6>I am a quick study, love to learn and employ new ideas and techniqes, and most importantly I am passionate and dedicated to my craft.</h6>
-                                            </Col>
-                                        </Row>
-                                        <Row>
-                                            <Col >
-                                                <h6>I am always up for a challenge, and you can reach out to me directly via email, <a href='mailto:mr.e.cameron@gmail.com'>mr.e.cameron@gmail.com</a></h6>
-                                            </Col>
-                                        </Row>
-                                    </Col>
-                                </Row>
+                                {this.props.view}
                                 <Row>
                                     <Col className='mx-auto text-center text-capitalize text-monospace'>
                                         <Row className='p-3' style={{ fontSize: '1.33rem' }}>
@@ -247,4 +222,4 @@ class Index extends Component {
     }
 }
 
-export default Index;
+export default Main
