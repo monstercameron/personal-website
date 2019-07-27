@@ -135,7 +135,7 @@ class Main extends Component {
                                 </Row>
                                 <Row>
                                     <Col className='mx-auto text-center text-capitalize text-monospace'>
-                                        <Row className='pr-3 pl-3' style={{ fontSize: '1.33rem' }}>
+                                        <Row className='pr-3 pl-3' style={{ fontSize: '1rem' }}>
                                             <Col sm={4}></Col>
                                             <Col sm={4}></Col>
                                             <Col
@@ -155,7 +155,7 @@ class Main extends Component {
                                                 <span className='ml-3'>{this.navigationButtonHandler()}</span>
                                             </Col>
                                         </Row>
-                                        <Row className='pr-3 pl-3 pb-3' style={{ fontSize: '1.33rem' }}>
+                                        <Row className='pr-3 pl-3 pb-3' style={{ fontSize: '1rem' }}>
                                             <Col className='border'>Highlight A</Col>
                                             <Col className='border'>Highlight B</Col>
                                             <Col className='border'>Highlight C</Col>
@@ -165,7 +165,7 @@ class Main extends Component {
                                 {this.props.view}
                                 <Row>
                                     <Col className='mx-auto text-center text-capitalize text-monospace'>
-                                        <Row className='p-3' style={{ fontSize: '1.33rem' }}>
+                                        <Row className='p-3' style={{ fontSize: '1rem' }}>
                                             <Col sm={4} className='border text-center' onMouseEnter={this.handleOnHover} onMouseLeave={this.handleOffHover} onClick={this.handleOnClick} data-link='/github'>
                                                 <img src={github} alt='github' style={{ filter: 'invert(1)', height: '20px', verticalAlign: 'middle' }} className='img-fluid' />
                                                 <span className='ml-3'>Github</span>
