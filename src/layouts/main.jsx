@@ -10,7 +10,7 @@ import jamaica from '../assets/images/jamaican.jpg'
 import bob from '../assets/audio/bob.mp3'
 import keywords from '../assets/keywords/keywords'
 import Sky from 'react-sky'
-//import { Shift } from 'ambient-cbg' //Coalesce, Shift, Swirl, Aurora,  Pipeline
+import { Shift } from 'ambient-cbg' //Coalesce, Shift, Swirl, Aurora,  Pipeline
 class Main extends Component {
     constructor(props) {
         super(props);
@@ -103,8 +103,8 @@ class Main extends Component {
     render() {
         //console.log('return', this.state)
         return (
-            <Container fluid style={{backgroundColor:'black'}}>
-                {/* <Shift /> */}
+            <Container fluid style={{backgroundColor:''}}>
+                <Shift className=''/>
                 {this.renderRedirect()}
                 <Sky
                     className='border'
