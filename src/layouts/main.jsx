@@ -103,8 +103,8 @@ class Main extends Component {
     render() {
         //console.log('return', this.state)
         return (
-            <Container fluid style={{backgroundColor:''}}>
-                <Shift className=''/>
+            <Container fluid style={{ backgroundColor: '' }}>
+                <Shift className='' />
                 {this.renderRedirect()}
                 <Sky
                     className='border'
@@ -124,13 +124,24 @@ class Main extends Component {
                                 <Row className='p-3'>
                                     <Col
                                         className='border p-3'
-                                        style={{ backgroundColor: 'rgba(255,255,255,)' }}>
-                                        <h1 style={{ fontFamily: 'Great Vibes, cursive', fontSize: '3rem' }}>
-                                            Earl Cameron
-                                        </h1>
-                                        <h5>
-                                            Full Stack Developer
-                                        </h5>
+                                        style={{ backgroundColor: 'rgba(255,255,255,)' }}
+                                    >
+                                        <Row>
+                                            <Col sm={11} className=''>
+                                                <h1 style={{ fontFamily: 'Great Vibes, cursive', fontSize: '3rem' }}>
+                                                    Earl Cameron
+                                                </h1>
+                                                <h5>
+                                                    Full Stack Developer
+                                                </h5>
+                                            </Col>
+                                            <Col
+                                                sm={1}
+                                                className='p-1'
+                                            >
+                                                <img alt='jamaican' src={jamaica} className='img-fluid shadow-lg d-block mx-auto' style={{ height: '28px' }} onClick={this.jamaica} />
+                                            </Col>
+                                        </Row>
                                     </Col>
                                 </Row>
                                 <Row>
@@ -155,17 +166,11 @@ class Main extends Component {
                                                 <span className='ml-3'>{this.navigationButtonHandler()}</span>
                                             </Col>
                                         </Row>
-                                        <Row className='pr-3 pl-3 pb-3' style={{ fontSize: '1rem' }}>
-                                            <Col className='border'>Highlight A</Col>
-                                            <Col className='border'>Highlight B</Col>
-                                            <Col className='border'>Highlight C</Col>
-                                        </Row>
                                     </Col>
                                 </Row>
-                                {this.props.view}
                                 <Row>
                                     <Col className='mx-auto text-center text-capitalize text-monospace'>
-                                        <Row className='p-3' style={{ fontSize: '1rem' }}>
+                                        <Row className='pl-3 pr-3 mb-3' style={{ fontSize: '1rem' }}>
                                             <Col sm={4} className='border text-center' onMouseEnter={this.handleOnHover} onMouseLeave={this.handleOffHover} onClick={this.handleOnClick} data-link='/github'>
                                                 <img src={github} alt='github' style={{ filter: 'invert(1)', height: '20px', verticalAlign: 'middle' }} className='img-fluid' />
                                                 <span className='ml-3'>Github</span>
@@ -178,26 +183,27 @@ class Main extends Component {
                                                 <img src={twitter} alt='github' style={{ filter: 'invert(1)', height: '20px', verticalAlign: 'middle' }} className='img-fluid' />
                                                 <span className='ml-3'>Twitter</span>
                                             </Col>
-                                            <Col
-                                                sm={4}
-                                                className='border'
-                                                onClick={this.handleShow}
-                                                onMouseEnter={this.handleOnHover}
-                                                onMouseLeave={this.handleOffHover}
-                                            >
-                                                <i className="material-icons" style={{ verticalAlign: 'middle' }}>
-                                                    fullscreen
-                                                </i>
-                                                <span className='ml-3'>Credits</span>
-                                            </Col>
-                                            <Col sm={4}></Col>
-                                            <Col
-                                                sm={4}
-                                                className='p-1'
-                                            >
-                                                <img alt='jamaican' src={jamaica} className='img-fluid shadow-lg' style={{ height: '28px' }} onClick={this.jamaica} />
-                                            </Col>
                                         </Row>
+                                    </Col>
+                                </Row>
+
+                                {this.props.view}
+
+                                <Row className='pr-3 pl-3 pb-3 mt-3' style={{ fontSize: '1rem' }}>
+                                    <Col sm={4} className='border'><span style={{ textDecoration: 'line-through' }}>websiteformy.company</span> (wip)</Col>
+                                    <Col sm={4} className='border'><span style={{ textDecoration: 'line-through' }}>autovittoriane.com</span> (wip)</Col>
+                                    <Col sm={4} className='border'><span style={{ textDecoration: 'line-through' }}>orbgang.us</span> (wip)</Col>
+                                    <Col
+                                        sm={4}
+                                        className='border'
+                                        onClick={this.handleShow}
+                                        onMouseEnter={this.handleOnHover}
+                                        onMouseLeave={this.handleOffHover}
+                                    >
+                                        <i className="material-icons" style={{ verticalAlign: 'middle' }}>
+                                            fullscreen
+                                                </i>
+                                        <span className='ml-3'>Credits</span>
                                     </Col>
                                 </Row>
                             </Col>
