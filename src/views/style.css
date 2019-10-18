@@ -1,0 +1,20 @@
+@keyframes techimage-anim {
+    from {
+        transform: scale(1);
+    }
+
+    to {
+        transform: scale(2);
+    }
+}
+.techimage:hover{
+    animation-name: techimage-anim;
+    animation-duration: .4s;
+    transform: scale(2);
+}
+.techimage:{
+    animation-name: techimage-anim;
+    animation-duration: .4s;
+    animation-direction: reverse;
+    transform: scale(1);
+}

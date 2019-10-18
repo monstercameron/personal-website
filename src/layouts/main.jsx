@@ -1,67 +1,43 @@
 import React, { Component } from 'react'
+import { withRouter } from 'react-router-dom'
 import { Container, Row, Col, Modal } from 'react-bootstrap'
-import { Redirect } from 'react-router-dom'
-import history from '../history'
 import credits from '../assets/credits/credits'
 import github from '../assets/images/github-sign.png'
 import linkedin from '../assets/images/linkedin-logo.png'
 import twitter from '../assets/images/twitter-logo.png'
 import jamaica from '../assets/images/jamaican.jpg'
+import confetti from '../assets/images/confetti.png'
 import bob from '../assets/audio/bob.mp3'
 import keywords from '../assets/keywords/keywords'
 import Sky from 'react-sky'
 import { Shift } from 'ambient-cbg' //Coalesce, Shift, Swirl, Aurora,  Pipeline
+import './style.css'
 class Main extends Component {
     constructor(props) {
         super(props);
-        this.state = { show: false, lang: 'us', pathname: '/portfolio' }
+        this.state = { show: false, lang: 'us', confetti: false}
     }
     setShow = (show) => this.setState({ show: show })
-    handleClose = () => this.setShow(false);
-    handleShow = () => this.setShow(true);
-    componentWillMount = () => {
-        this.navigationHandler()
-    }
-    navigationHandler = () => {
-        const { pathname } = window.location
-        if (pathname === '/') {
-            this.setState({ pathname: '/portfolio' })
-        } else {
-            this.setState({ pathname: '/' })
-        }
-    }
+    handleClose = () => this.setShow(false)
+    handleShow = () => this.setShow(true)
     navigationButtonHandler = () => {
-        return this.state.pathname === '/' ? 'About Me' : 'Portfolio'
-    }
-    handleOnHover = (e) => {
-        //console.log(e.target.childNodes[0])
-        e.target.style.backgroundColor = 'white'
-        e.target.style.color = 'black'
-        if (e.target.childNodes[0] && e.target.childNodes[0].tagName === 'IMG') {
-            e.target.childNodes[0].style.filter = 'invert(0)'
-        }
-    }
-    handleOffHover = (e) => {
-        //console.log(e.type)
-        e.target.style.backgroundColor = ''
-        e.target.style.color = 'white'
-        if (e.target.childNodes[0] && e.target.childNodes[0].tagName === 'IMG') {
-            e.target.childNodes[0].style.filter = 'invert(1)'
+        if (this.props.location.pathname === '/') {
+            return 'Portfolio'
+        } else if (this.props.location.pathname === '/portfolio') {
+            return 'About Me'
         }
     }
     handleOnClick = (e) => {
-        //console.log(e.target, e.target.parentElement.getAttribute('data-link'))
-        const target = e.target.getAttribute('data-link') === null ? e.target.parentElement.getAttribute('data-link') : e.target.getAttribute('data-link')
-        //console.log(target)
-        if (target) {
-            history.push(target)
-            this.setState({ target: target })
-        }
+        if (this.props.location.pathname === '/') {
+            this.props.history.push('/portfolio')
+        } else if (this.props.location.pathname === '/portfolio') {
+            this.props.history.push('/')
+        }  
     }
     handleCredits = () => {
-        return credits.map(credit => {
+        return credits.map((credit,index) => {
             return (
-                <div key={credit.file}>
+                <div key={`credit-${index}`}>
                     <div>
                         {credit.file}
                     </div>
@@ -71,12 +47,6 @@ class Main extends Component {
                 </div>
             )
         })
-    }
-    renderRedirect = () => {
-        if (this.state.target) {
-            this.setState({ target: undefined })
-            return <Redirect to={this.state.target} />
-        }
     }
     handleWordCloud = () => {
         let res = {}
@@ -91,7 +61,7 @@ class Main extends Component {
     }
     jamaica = () => {
         const jamaica = document.querySelector('#bob')
-        console.log('paused', jamaica.paused)
+        // console.log('paused', jamaica.paused)
         if (jamaica.paused) {
             jamaica.play()
             this.setState({ lang: 'jam' })
@@ -100,12 +70,16 @@ class Main extends Component {
             this.setState({ lang: 'us' })
         }
     }
+    confetti = () => {
+        this.setState({confetti : !this.state.confetti})
+    }
     render() {
-        //console.log('return', this.state)
+        // console.log(this.props, this.state)
         return (
-            <Container fluid style={{ backgroundColor: '' }}>
+            <Container fluid>
                 <Shift className='' />
-                {this.renderRedirect()}
+                {
+                    this.state.confetti === true || this.state.lang === 'jam' ? 
                 <Sky
                     className='border'
                     images={this.state.lang === 'us' ? this.handleWordCloud() : this.handleWordCloudJamaica()}
@@ -113,7 +87,9 @@ class Main extends Component {
                     time={60} /* time of the animation. Dfaults at 20s */
                     size={'32px'} /* size of the rendered images. Defaults at 150px */
                     background={'palettedvioletred'} /* color of background. Defaults to none */
-                />
+                /> :
+                ''
+                }
                 <Row>
                     <Col>
                         <Row>
@@ -126,7 +102,7 @@ class Main extends Component {
                                         className='border p-3'
                                         style={{ backgroundColor: 'rgba(255,255,255,)' }}
                                     >
-                                        <Row>
+                                        <Row className=''>
                                             <Col sm={11} className=''>
                                                 <h1 style={{ fontFamily: 'Great Vibes, cursive', fontSize: '3rem' }}>
                                                     Earl Cameron
@@ -135,11 +111,22 @@ class Main extends Component {
                                                     Full Stack Developer
                                                 </h5>
                                             </Col>
-                                            <Col
-                                                sm={1}
-                                                className='p-1'
-                                            >
-                                                <img alt='jamaican' src={jamaica} className='img-fluid shadow-lg d-block mx-auto' style={{ height: '28px' }} onClick={this.jamaica} />
+                                            <Col>
+                                                <Row>
+                                                    <Col
+                                                        sm={12}
+                                                        className='p-1'
+                                                    >
+                                                        <img alt='jamaican' src={jamaica} className='img-fluid shadow-lg d-block mx-auto cursor jamaica' style={{ height: '28px' }} onClick={this.jamaica} />
+                                                    </Col>
+                                                    <Col
+                                                        sm={12}
+                                                        className='p-1'
+                                                    >
+                                                        <img alt='confetti' src={confetti} className='img-fluid shadow-lg d-block mx-auto cursor confetti' style={{ height: '28px' }} onClick={this.confetti} />
+
+                                                    </Col>
+                                                </Row>
                                             </Col>
                                         </Row>
                                     </Col>
@@ -151,11 +138,8 @@ class Main extends Component {
                                             <Col sm={4}></Col>
                                             <Col
                                                 sm={4}
-                                                className='border text-center'
-                                                onMouseEnter={this.handleOnHover}
-                                                onMouseLeave={this.handleOffHover}
+                                                className='border text-center menu-link'
                                                 onClick={this.handleOnClick}
-                                                data-link={this.state.pathname}
                                             >
                                                 <i
                                                     className="material-icons"
@@ -171,16 +155,28 @@ class Main extends Component {
                                 <Row>
                                     <Col className='mx-auto text-center text-capitalize text-monospace'>
                                         <Row className='pl-3 pr-3 mb-3' style={{ fontSize: '1rem' }}>
-                                            <Col sm={4} className='border text-center' onMouseEnter={this.handleOnHover} onMouseLeave={this.handleOffHover} onClick={this.handleOnClick} data-link='/github'>
-                                                <img src={github} alt='github' style={{ filter: 'invert(1)', height: '20px', verticalAlign: 'middle' }} className='img-fluid' />
+                                            <Col
+                                                sm={4}
+                                                className='border text-center menu-link'
+                                                onClick={(e) => window.location.href = 'https://github.com/monstercameron'}
+                                            >
+                                                <img src={github} alt='github' className='img-fluid menu-link-img' />
                                                 <span className='ml-3'>Github</span>
                                             </Col>
-                                            <Col sm={4} className='border text-center' onMouseEnter={this.handleOnHover} onMouseLeave={this.handleOffHover} onClick={this.handleOnClick} data-link='/linkedin'>
-                                                <img src={linkedin} alt='github' style={{ filter: 'invert(1)', height: '20px', verticalAlign: 'middle' }} className='img-fluid' />
+                                            <Col
+                                                sm={4}
+                                                className='border text-center menu-link'
+                                                onClick={(e) => window.location.href = 'https://www.linkedin.com/in/earl-cameron-9211a058/'}
+                                            >
+                                                <img src={linkedin} alt='github' className='img-fluid menu-link-img' />
                                                 <span className='ml-3'>LinkedIn</span>
                                             </Col>
-                                            <Col sm={4} className='border text-center' onMouseEnter={this.handleOnHover} onMouseLeave={this.handleOffHover} onClick={this.handleOnClick} data-link='/twitter'>
-                                                <img src={twitter} alt='github' style={{ filter: 'invert(1)', height: '20px', verticalAlign: 'middle' }} className='img-fluid' />
+                                            <Col
+                                                sm={4}
+                                                className='border text-center menu-link'
+                                                onClick={(e) => window.location.href = 'https://twitter.com/monstercameron'}
+                                            >
+                                                <img src={twitter} alt='github' className='img-fluid menu-link-img' />
                                                 <span className='ml-3'>Twitter</span>
                                             </Col>
                                         </Row>
@@ -190,15 +186,13 @@ class Main extends Component {
                                 {this.props.view}
 
                                 <Row className='pr-3 pl-3 pb-3 mt-3' style={{ fontSize: '1rem' }}>
-                                    <Col sm={4} className='border'><span style={{ textDecoration: 'line-through' }}>websiteformy.company</span> (wip)</Col>
+                                    {/* <Col sm={4} className='border'><span style={{ textDecoration: 'line-through' }}>websiteformy.company</span> (wip)</Col>
                                     <Col sm={4} className='border'><span style={{ textDecoration: 'line-through' }}>autovittoriane.com</span> (wip)</Col>
-                                    <Col sm={4} className='border'><span style={{ textDecoration: 'line-through' }}>orbgang.us</span> (wip)</Col>
+                                    <Col sm={4} className='border'><span style={{ textDecoration: 'line-through' }}>orbgang.us</span> (wip)</Col> */}
                                     <Col
                                         sm={4}
-                                        className='border'
+                                        className='border menu-link'
                                         onClick={this.handleShow}
-                                        onMouseEnter={this.handleOnHover}
-                                        onMouseLeave={this.handleOffHover}
                                     >
                                         <i className="material-icons" style={{ verticalAlign: 'middle' }}>
                                             fullscreen
@@ -228,4 +222,4 @@ class Main extends Component {
     }
 }
 
-export default Main
+export default withRouter(Main)
