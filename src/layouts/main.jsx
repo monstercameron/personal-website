@@ -74,7 +74,7 @@ class Main extends Component {
         this.setState({confetti : !this.state.confetti})
     }
     render() {
-        // console.log(this.props, this.state)
+        console.log(this.props, this.state)
         return (
             <Container fluid>
                 <Shift className='' />
