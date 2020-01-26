@@ -76,3 +76,7 @@
     animation-duration: .4s;
     transform: scale(1);
 }
+
+.noShowAnchor {
+    color: white;
+}
