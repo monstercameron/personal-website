@@ -230,7 +230,7 @@ class Main extends Component {
                     </i>
                     <span className="ml-3">
                       <a
-                        href={`https://157.245.131.14/`}
+                        href={`http://vscode.earlcameron.com`}
                         className="noShowAnchor"
                         target="new"
                       >
@@ -245,7 +245,7 @@ class Main extends Component {
                     </i>
                     <span className="ml-3">
                       <a
-                        href={`http://104.131.197.240`}
+                        href={`http://rss.earlcameron.com`}
                         className="noShowAnchor"
                         target="new"
                       >
