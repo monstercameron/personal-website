@@ -1,18 +1,19 @@
 {
   "files": {
     "main.css": "/static/css/main.b1e722f1.chunk.css",
-    "main.js": "/static/js/main.529aed35.chunk.js",
-    "main.js.map": "/static/js/main.529aed35.chunk.js.map",
-    "runtime~main.js": "/static/js/runtime~main.a8a9905a.js",
-    "runtime~main.js.map": "/static/js/runtime~main.a8a9905a.js.map",
-    "static/css/2.f74a8007.chunk.css": "/static/css/2.f74a8007.chunk.css",
-    "static/js/2.77be847e.chunk.js": "/static/js/2.77be847e.chunk.js",
-    "static/js/2.77be847e.chunk.js.map": "/static/js/2.77be847e.chunk.js.map",
+    "main.js": "/static/js/main.b9c0a8d9.chunk.js",
+    "main.js.map": "/static/js/main.b9c0a8d9.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.736723a6.js",
+    "runtime-main.js.map": "/static/js/runtime-main.736723a6.js.map",
+    "static/css/2.62027c08.chunk.css": "/static/css/2.62027c08.chunk.css",
+    "static/js/2.4af028f9.chunk.js": "/static/js/2.4af028f9.chunk.js",
+    "static/js/2.4af028f9.chunk.js.map": "/static/js/2.4af028f9.chunk.js.map",
     "index.html": "/index.html",
-    "precache-manifest.2140c23dc1f6f3d70fbfa10ba34ac835.js": "/precache-manifest.2140c23dc1f6f3d70fbfa10ba34ac835.js",
+    "precache-manifest.8c4b793428acd5b515736b989e563784.js": "/precache-manifest.8c4b793428acd5b515736b989e563784.js",
     "service-worker.js": "/service-worker.js",
-    "static/css/2.f74a8007.chunk.css.map": "/static/css/2.f74a8007.chunk.css.map",
+    "static/css/2.62027c08.chunk.css.map": "/static/css/2.62027c08.chunk.css.map",
     "static/css/main.b1e722f1.chunk.css.map": "/static/css/main.b1e722f1.chunk.css.map",
+    "static/js/2.4af028f9.chunk.js.LICENSE.txt": "/static/js/2.4af028f9.chunk.js.LICENSE.txt",
     "static/media/apache.png": "/static/media/apache.9d726130.png",
     "static/media/bob.mp3": "/static/media/bob.e2cbe010.mp3",
     "static/media/bootstrap4.png": "/static/media/bootstrap4.9dc9362d.png",
@@ -32,5 +33,12 @@
     "static/media/react.png": "/static/media/react.b515fdb1.png",
     "static/media/rest.png": "/static/media/rest.2557dc24.png",
     "static/media/ubuntu.png": "/static/media/ubuntu.94938a7c.png"
-  }
+  },
+  "entrypoints": [
+    "static/js/runtime-main.736723a6.js",
+    "static/css/2.62027c08.chunk.css",
+    "static/js/2.4af028f9.chunk.js",
+    "static/css/main.b1e722f1.chunk.css",
+    "static/js/main.b9c0a8d9.chunk.js"
+  ]
 }
