@@ -1,127 +1,123 @@
-import React, {Component} from 'react';
-import {withRouter} from 'react-router-dom';
-import {Container, Row, Col, Modal} from 'react-bootstrap';
-import credits from '../assets/credits/credits';
-import github from '../assets/images/github-sign.png';
-import linkedin from '../assets/images/linkedin-logo.png';
-import twitter from '../assets/images/twitter-logo.png';
-import jamaica from '../assets/images/jamaican.jpg';
-import confetti from '../assets/images/confetti.png';
-import bob from '../assets/audio/bob.mp3';
-import keywords from '../assets/keywords/keywords';
-import Sky from 'react-sky';
-import {Shift} from 'ambient-cbg'; //Coalesce, Shift, Swirl, Aurora,  Pipeline
-import './style.css';
+import React, { Component } from "react";
+import { withRouter } from "react-router-dom";
+import { Container, Row, Col, Modal } from "react-bootstrap";
+import credits from "../assets/credits/credits";
+import github from "../assets/images/github-sign.png";
+import linkedin from "../assets/images/linkedin-logo.png";
+import twitter from "../assets/images/twitter-logo.png";
+import jamaica from "../assets/images/jamaican.jpg";
+import confetti from "../assets/images/confetti.png";
+import bob from "../assets/audio/bob.mp3";
+import keywords from "../assets/keywords/keywords";
+import Sky from "react-sky";
+import { Shift } from "ambient-cbg"; //Coalesce, Shift, Swirl, Aurora,  Pipeline
+import "./style.css";
 class Main extends Component {
-  constructor (props) {
-    super (props);
-    this.state = {show: false, lang: 'us', confetti: false};
+  constructor(props) {
+    super(props);
+    this.state = { show: false, lang: "us", confetti: false };
   }
-  setShow = show => this.setState ({show: show});
-  handleClose = () => this.setShow (false);
-  handleShow = () => this.setShow (true);
+  setShow = show => this.setState({ show: show });
+  handleClose = () => this.setShow(false);
+  handleShow = () => this.setShow(true);
   navigationButtonHandler = () => {
-    if (this.props.location.pathname === '/') {
-      return 'Portfolio';
-    } else if (this.props.location.pathname === '/portfolio') {
-      return 'About Me';
+    if (this.props.location.pathname === "/") {
+      return "Portfolio";
+    } else if (this.props.location.pathname === "/portfolio") {
+      return "About Me";
     }
   };
   handleOnClick = e => {
-    if (this.props.location.pathname === '/') {
-      this.props.history.push ('/portfolio');
-    } else if (this.props.location.pathname === '/portfolio') {
-      this.props.history.push ('/');
+    if (this.props.location.pathname === "/") {
+      this.props.history.push("/portfolio");
+    } else if (this.props.location.pathname === "/portfolio") {
+      this.props.history.push("/");
     }
   };
   handleCredits = () => {
-    return credits.map ((credit, index) => {
+    return credits.map((credit, index) => {
       return (
         <div key={`credit-${index}`}>
-          <div>
-            {credit.file}
-          </div>
-          <pre>
-            {credit.credit}
-          </pre>
+          <div>{credit.file}</div>
+          <pre>{credit.credit}</pre>
         </div>
       );
     });
   };
   handleWordCloud = () => {
     let res = {};
-    keywords.map ((keyword, index) => {
+    keywords.map((keyword, index) => {
       return (res[index] = keyword.image);
     });
     //console.log(res)
     return res;
   };
   handleWordCloudJamaica = () => {
-    return {0: jamaica};
+    return { 0: jamaica };
   };
   jamaica = () => {
-    const jamaica = document.querySelector ('#bob');
+    const jamaica = document.querySelector("#bob");
     // console.log('paused', jamaica.paused)
     if (jamaica.paused) {
-      jamaica.play ();
-      this.setState ({lang: 'jam'});
+      jamaica.play();
+      this.setState({ lang: "jam" });
     } else {
-      jamaica.pause ();
-      this.setState ({lang: 'us'});
+      jamaica.pause();
+      this.setState({ lang: "us" });
     }
   };
   confetti = () => {
-    this.setState ({confetti: !this.state.confetti});
+    this.setState({ confetti: !this.state.confetti });
   };
-  render () {
-    console.log (this.props, this.state);
+  render() {
+    console.log(this.props, this.state);
     return (
       <Container fluid>
         <Shift className="" />
-        {this.state.confetti === true || this.state.lang === 'jam'
-          ? <Sky
-              className="border"
-              images={
-                this.state.lang === 'us'
-                  ? this.handleWordCloud ()
-                  : this.handleWordCloudJamaica ()
-              }
-              how={
-                100
-              } /* You have to pass a number so Sky will render that amount of images chosen randomly from the object you passed in the previous step */
-              time={60} /* time of the animation. Dfaults at 20s */
-              size={'32px'} /* size of the rendered images. Defaults at 150px */
-              background={
-                'palettedvioletred'
-              } /* color of background. Defaults to none */
-            />
-          : ''}
+        {this.state.confetti === true || this.state.lang === "jam" ? (
+          <Sky
+            className="border"
+            images={
+              this.state.lang === "us"
+                ? this.handleWordCloud()
+                : this.handleWordCloudJamaica()
+            }
+            how={
+              100
+            } /* You have to pass a number so Sky will render that amount of images chosen randomly from the object you passed in the previous step */
+            time={60} /* time of the animation. Dfaults at 20s */
+            size={"32px"} /* size of the rendered images. Defaults at 150px */
+            background={
+              "palettedvioletred"
+            } /* color of background. Defaults to none */
+          />
+        ) : (
+          ""
+        )}
         <Row>
           <Col>
             <Row>
               <Col
                 sm={8}
                 className="rounded p-3 mt-2 mb-5 mx-auto text-white"
-                style={{backgroundColor: 'rgba(50,50,255,.00)'}}
+                style={{ backgroundColor: "rgba(50,50,255,.00)" }}
               >
                 <Row className="p-3">
                   <Col
                     className="border p-3"
-                    style={{backgroundColor: 'rgba(255,255,255,)'}}
+                    style={{ backgroundColor: "rgba(255,255,255,)" }}
                   >
                     <Row className="">
                       <Col sm={11} className="">
                         <h1
                           style={{
-                            fontFamily: 'Great Vibes, cursive',
-                            fontSize: '3rem',
+                            fontFamily: "Great Vibes, cursive",
+                            fontSize: "3rem"
                           }}
                         >
                           Earl Cameron
                         </h1>
-                        <h5>
-                          Full Stack Developer
-                        </h5>
+                        <h5>Full Stack Developer</h5>
                       </Col>
                       <Col>
                         <Row>
@@ -130,7 +126,7 @@ class Main extends Component {
                               alt="jamaican"
                               src={jamaica}
                               className="img-fluid shadow-lg d-block mx-auto cursor jamaica"
-                              style={{height: '28px'}}
+                              style={{ height: "28px" }}
                               onClick={this.jamaica}
                             />
                           </Col>
@@ -139,10 +135,9 @@ class Main extends Component {
                               alt="confetti"
                               src={confetti}
                               className="img-fluid shadow-lg d-block mx-auto cursor confetti"
-                              style={{height: '28px'}}
+                              style={{ height: "28px" }}
                               onClick={this.confetti}
                             />
-
                           </Col>
                         </Row>
                       </Col>
@@ -151,7 +146,7 @@ class Main extends Component {
                 </Row>
                 <Row>
                   <Col className="mx-auto text-center text-capitalize text-monospace">
-                    <Row className="pr-3 pl-3" style={{fontSize: '1rem'}}>
+                    <Row className="pr-3 pl-3" style={{ fontSize: "1rem" }}>
                       <Col sm={4} />
                       <Col sm={4} />
                       <Col
@@ -161,12 +156,12 @@ class Main extends Component {
                       >
                         <i
                           className="material-icons"
-                          style={{verticalAlign: 'middle'}}
+                          style={{ verticalAlign: "middle" }}
                         >
                           code
                         </i>
                         <span className="ml-3">
-                          {this.navigationButtonHandler ()}
+                          {this.navigationButtonHandler()}
                         </span>
                       </Col>
                     </Row>
@@ -174,13 +169,17 @@ class Main extends Component {
                 </Row>
                 <Row>
                   <Col className="mx-auto text-center text-capitalize text-monospace">
-                    <Row className="pl-3 pr-3 mb-3" style={{fontSize: '1rem'}}>
+                    <Row
+                      className="pl-3 pr-3 mb-3"
+                      style={{ fontSize: "1rem" }}
+                    >
                       <Col
                         sm={4}
                         className="border text-center menu-link"
                         onClick={e =>
                           (window.location.href =
-                            'https://github.com/monstercameron')}
+                            "https://github.com/monstercameron")
+                        }
                       >
                         <img
                           src={github}
@@ -194,7 +193,8 @@ class Main extends Component {
                         className="border text-center menu-link"
                         onClick={e =>
                           (window.location.href =
-                            'https://www.linkedin.com/in/earl-cameron-9211a058/')}
+                            "https://www.linkedin.com/in/earl-cameron-9211a058/")
+                        }
                       >
                         <img
                           src={linkedin}
@@ -208,7 +208,8 @@ class Main extends Component {
                         className="border text-center menu-link"
                         onClick={e =>
                           (window.location.href =
-                            'https://twitter.com/monstercameron')}
+                            "https://twitter.com/monstercameron")
+                        }
                       >
                         <img
                           src={twitter}
@@ -223,9 +224,15 @@ class Main extends Component {
 
                 {this.props.view}
 
-                <Row className="pr-3 pl-3 pb-3 mt-3" style={{fontSize: '1rem'}}>
+                <Row
+                  className="pr-3 pl-3 pb-3 mt-3"
+                  style={{ fontSize: "1rem" }}
+                >
                   <Col sm={4} className="border menu-link">
-                    <i class="material-icons" style={{verticalAlign: 'middle'}}>
+                    <i
+                      class="material-icons"
+                      style={{ verticalAlign: "middle" }}
+                    >
                       code
                     </i>
                     <span className="ml-3">
@@ -240,7 +247,10 @@ class Main extends Component {
                   </Col>
 
                   <Col sm={4} className="border menu-link">
-                    <i class="material-icons" style={{verticalAlign: 'middle'}}>
+                    <i
+                      class="material-icons"
+                      style={{ verticalAlign: "middle" }}
+                    >
                       rss_feed
                     </i>
                     <span className="ml-3">
@@ -254,6 +264,24 @@ class Main extends Component {
                     </span>
                   </Col>
 
+                  <Col sm={4} className="border menu-link">
+                    <i
+                      class="material-icons"
+                      style={{ verticalAlign: "middle" }}
+                    >
+                      short_text
+                    </i>
+                    <span className="ml-3">
+                      <a
+                        href={`http://blog.earlcameron.com`}
+                        className="noShowAnchor"
+                        target="new"
+                      >
+                        Blog
+                      </a>
+                    </span>
+                  </Col>
+
                   <Col
                     sm={4}
                     className="border menu-link"
@@ -261,7 +289,7 @@ class Main extends Component {
                   >
                     <i
                       className="material-icons"
-                      style={{verticalAlign: 'middle'}}
+                      style={{ verticalAlign: "middle" }}
                     >
                       fullscreen
                     </i>
@@ -277,7 +305,7 @@ class Main extends Component {
             <Modal.Header closeButton>
               <Modal.Title>Attribution</Modal.Title>
             </Modal.Header>
-            <Modal.Body>{this.handleCredits ()}</Modal.Body>
+            <Modal.Body>{this.handleCredits()}</Modal.Body>
           </Modal>
         </Row>
         <Row>
@@ -290,4 +318,4 @@ class Main extends Component {
   }
 }
 
-export default withRouter (Main);
+export default withRouter(Main);
