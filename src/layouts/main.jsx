@@ -70,7 +70,7 @@ class Main extends Component {
     this.setState({ confetti: !this.state.confetti });
   };
   render() {
-    console.log(this.props, this.state);
+    // console.log(this.props, this.state);
     return (
       <Container fluid>
         <Shift className="" />
@@ -245,7 +245,7 @@ class Main extends Component {
                 >
                   <Col sm={4} className="border menu-link">
                     <i
-                      class="material-icons"
+                      className="material-icons"
                       style={{ verticalAlign: "middle" }}
                     >
                       code
@@ -263,7 +263,7 @@ class Main extends Component {
 
                   <Col sm={4} className="border menu-link">
                     <i
-                      class="material-icons"
+                      className="material-icons"
                       style={{ verticalAlign: "middle" }}
                     >
                       rss_feed
@@ -281,7 +281,7 @@ class Main extends Component {
 
                   <Col sm={4} className="border menu-link">
                     <i
-                      class="material-icons"
+                      className="material-icons"
                       style={{ verticalAlign: "middle" }}
                     >
                       short_text
