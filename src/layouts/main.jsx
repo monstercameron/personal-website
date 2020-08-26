@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { withRouter } from "react-router-dom";
+import { withRouter, Link } from "react-router-dom";
 import { Container, Row, Col, Modal } from "react-bootstrap";
 import credits from "../assets/credits/credits";
 import github from "../assets/images/github-sign.png";
@@ -17,7 +17,7 @@ class Main extends Component {
     super(props);
     this.state = { show: false, lang: "us", confetti: false };
   }
-  setShow = show => this.setState({ show: show });
+  setShow = (show) => this.setState({ show: show });
   handleClose = () => this.setShow(false);
   handleShow = () => this.setShow(true);
   navigationButtonHandler = () => {
@@ -27,7 +27,7 @@ class Main extends Component {
       return "About Me";
     }
   };
-  handleOnClick = e => {
+  handleOnClick = (e) => {
     if (this.props.location.pathname === "/") {
       this.props.history.push("/portfolio");
     } else if (this.props.location.pathname === "/portfolio") {
@@ -112,7 +112,7 @@ class Main extends Component {
                         <h1
                           style={{
                             fontFamily: "Great Vibes, cursive",
-                            fontSize: "3rem"
+                            fontSize: "3rem",
                           }}
                         >
                           Earl Cameron
@@ -173,50 +173,65 @@ class Main extends Component {
                       className="pl-3 pr-3 mb-3"
                       style={{ fontSize: "1rem" }}
                     >
-                      <Col
-                        sm={4}
-                        className="border text-center menu-link"
-                        onClick={e =>
-                          (window.location.href =
-                            "https://github.com/monstercameron")
-                        }
-                      >
-                        <img
-                          src={github}
-                          alt="github"
-                          className="img-fluid menu-link-img"
-                        />
-                        <span className="ml-3">Github</span>
+                      <Col sm={4} className="border text-center menu-link">
+                        <Link
+                          to="/resume"
+                          style={{ textDecoration: "none", color: "white" }}
+                          target="_blank"
+                        >
+                          <span
+                            className="material-icons"
+                            style={{ verticalAlign: "middle" }}
+                          >
+                            receipt
+                          </span>
+                          <span className="ml-3">Resumne/CV</span>
+                        </Link>
                       </Col>
-                      <Col
-                        sm={4}
-                        className="border text-center menu-link"
-                        onClick={e =>
-                          (window.location.href =
-                            "https://www.linkedin.com/in/earl-cameron-9211a058/")
-                        }
-                      >
-                        <img
-                          src={linkedin}
-                          alt="github"
-                          className="img-fluid menu-link-img"
-                        />
-                        <span className="ml-3">LinkedIn</span>
+                      <Col sm={4} className="border text-center menu-link">
+                        <a
+                          href="https://github.com/monstercameron"
+                          style={{ textDecoration: "none", color: "white" }}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          <img
+                            src={github}
+                            alt="github"
+                            className="img-fluid menu-link-img"
+                          />
+                          <span className="ml-3">Github</span>
+                        </a>
                       </Col>
-                      <Col
-                        sm={4}
-                        className="border text-center menu-link"
-                        onClick={e =>
-                          (window.location.href =
-                            "https://twitter.com/monstercameron")
-                        }
-                      >
-                        <img
-                          src={twitter}
-                          alt="github"
-                          className="img-fluid menu-link-img"
-                        />
-                        <span className="ml-3">Twitter</span>
+                      <Col sm={4} className="border text-center menu-link">
+                        <a
+                          href="https://www.linkedin.com/in/earl-cameron-9211a058/"
+                          style={{ textDecoration: "none", color: "white" }}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          <img
+                            src={linkedin}
+                            alt="github"
+                            className="img-fluid menu-link-img"
+                          />
+                          <span className="ml-3">LinkedIn</span>
+                        </a>
+                      </Col>
+                      <Col sm={4} className="border text-center menu-link">
+                        <a
+                          href="https://twitter.com/monstercameron"
+                          style={{ textDecoration: "none", color: "white" }}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          <img
+                            src={twitter}
+                            alt="github"
+                            className="img-fluid menu-link-img"
+                          />
+                          <span className="ml-3">Twitter</span>
+                        </a>
                       </Col>
                     </Row>
                   </Col>
