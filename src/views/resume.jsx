@@ -8,7 +8,9 @@ const Resume = () => {
           <h2 className="mb-0">Earl Cameron</h2>
         </div>
         <div className="col-6 mx-auto text-center">
-          <h6 className="mb-0">305-321-0531 | mr.e.cameron@gmail.com</h6>
+          <h6 className="mb-0 text-uppercase">
+            305-321-0531 | mr.e.cameron@gmail.com | www.earlcameron.com
+          </h6>
         </div>
       </div>
       {/* summary */}
@@ -277,7 +279,7 @@ const Resume = () => {
         </div>
       </div>
       {/* personal */}
-      <div className="row mt-2">
+      <div className="row mt-2 text-capitalize">
         <div className="col-12 text-center">
           <h5 className="mb-0">Interests/activites</h5>
           <hr className="m-1" />
@@ -285,7 +287,10 @@ const Resume = () => {
         <div className="col-12">
           <ul>
             <li>attends local hackathons to learn more and network</li>
-            <li>subscribes development email lists to keep updated</li>
+            <li>
+              subscribes development email lists to keep updated and reads daily
+              medium articles about webdev
+            </li>
             <li>
               reads reddit, specifically r/javascript/, r/node/, r/reactjs/ sub
               reddits, amongst development communities
@@ -294,7 +299,6 @@ const Resume = () => {
               learning electronics and likes to start interesting projects
               https://github.com/monstercameron/pi-camera-gui
             </li>
-            <li>reads daily medium articles about webdev</li>
             <li>learning Japanese via Duolingo</li>
           </ul>
         </div>

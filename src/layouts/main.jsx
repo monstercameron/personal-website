@@ -185,7 +185,7 @@ class Main extends Component {
                           >
                             receipt
                           </span>
-                          <span className="ml-3">Resumne/CV</span>
+                          <span className="ml-3">Resume/Cv</span>
                         </Link>
                       </Col>
                       <Col sm={4} className="border text-center menu-link">
