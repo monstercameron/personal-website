@@ -25,12 +25,16 @@ class Main extends Component {
       return "Portfolio";
     } else if (this.props.location.pathname === "/portfolio") {
       return "About Me";
+    } else {
+      return "About Me";
     }
   };
   handleOnClick = (e) => {
     if (this.props.location.pathname === "/") {
       this.props.history.push("/portfolio");
     } else if (this.props.location.pathname === "/portfolio") {
+      this.props.history.push("/");
+    } else {
       this.props.history.push("/");
     }
   };
@@ -72,7 +76,7 @@ class Main extends Component {
   render() {
     // console.log(this.props, this.state);
     return (
-      <Container fluid>
+      <Container fluid style={{ backgroundColor: "" }}>
         <Shift className="" />
         {this.state.confetti === true || this.state.lang === "jam" ? (
           <Sky
@@ -173,6 +177,61 @@ class Main extends Component {
                       className="pl-3 pr-3 mb-3"
                       style={{ fontSize: "1rem" }}
                     >
+                      <Col sm={4} className="border menu-link">
+                        <i
+                          className="material-icons"
+                          style={{ verticalAlign: "middle" }}
+                        >
+                          short_text
+                        </i>
+                        <span className="ml-3">
+                          <Link className="noShowAnchor" to="/blog">
+                            Blog
+                          </Link>
+                          {/* <a
+                            href={`http://earlcameron.com`}
+                            className="noShowAnchor"
+                            target="new"
+                          >
+                          </a> */}
+                        </span>
+                      </Col>
+                      {/* <Col sm={4} className="border menu-link">
+                        <i
+                          className="material-icons"
+                          style={{ verticalAlign: "middle" }}
+                        >
+                          code
+                        </i>
+                        <span className="ml-3">
+                          <a
+                            href={`http://vscode.earlcameron.com`}
+                            className="noShowAnchor"
+                            target="new"
+                          >
+                            Code-Server
+                          </a>
+                        </span>
+                      </Col> */}
+
+                      <Col sm={4} className="border menu-link">
+                        <i
+                          className="material-icons"
+                          style={{ verticalAlign: "middle" }}
+                        >
+                          rss_feed
+                        </i>
+                        <span className="ml-3">
+                          <a
+                            href={`http://rss.earlcameron.com`}
+                            className="noShowAnchor"
+                            target="new"
+                          >
+                            TTRSS
+                          </a>
+                        </span>
+                      </Col>
+
                       <Col sm={4} className="border text-center menu-link">
                         <Link
                           to="/resume"
@@ -188,115 +247,59 @@ class Main extends Component {
                           <span className="ml-3">Resume/Cv</span>
                         </Link>
                       </Col>
-                      <Col sm={4} className="border text-center menu-link">
-                        <a
-                          href="https://github.com/monstercameron"
-                          style={{ textDecoration: "none", color: "white" }}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                        >
-                          <img
-                            src={github}
-                            alt="github"
-                            className="img-fluid menu-link-img"
-                          />
-                          <span className="ml-3">Github</span>
-                        </a>
-                      </Col>
-                      <Col sm={4} className="border text-center menu-link">
-                        <a
-                          href="https://www.linkedin.com/in/earl-cameron-9211a058/"
-                          style={{ textDecoration: "none", color: "white" }}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                        >
-                          <img
-                            src={linkedin}
-                            alt="github"
-                            className="img-fluid menu-link-img"
-                          />
-                          <span className="ml-3">LinkedIn</span>
-                        </a>
-                      </Col>
-                      <Col sm={4} className="border text-center menu-link">
-                        <a
-                          href="https://twitter.com/monstercameron"
-                          style={{ textDecoration: "none", color: "white" }}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                        >
-                          <img
-                            src={twitter}
-                            alt="github"
-                            className="img-fluid menu-link-img"
-                          />
-                          <span className="ml-3">Twitter</span>
-                        </a>
-                      </Col>
                     </Row>
                   </Col>
                 </Row>
-
-                {this.props.view}
-
+                <div id="content-top">{this.props.view}</div>
                 <Row
                   className="pr-3 pl-3 pb-3 mt-3"
-                  style={{ fontSize: "1rem" }}
+                  style={{ fontSize: "1.1rem" }}
                 >
-                  <Col sm={4} className="border menu-link">
-                    <i
-                      className="material-icons"
-                      style={{ verticalAlign: "middle" }}
+                  <Col sm={4} className="border text-center menu-link pb-1">
+                    <a
+                      href="https://github.com/monstercameron"
+                      style={{ textDecoration: "none", color: "white" }}
+                      target="_blank"
+                      rel="noopener noreferrer"
                     >
-                      code
-                    </i>
-                    <span className="ml-3">
-                      <a
-                        href={`http://vscode.earlcameron.com`}
-                        className="noShowAnchor"
-                        target="new"
-                      >
-                        Code-Server
-                      </a>
-                    </span>
+                      <img
+                        src={github}
+                        alt="github"
+                        className="img-fluid menu-link-img"
+                      />
+                      <span className="ml-3">Github</span>
+                    </a>
                   </Col>
-
-                  <Col sm={4} className="border menu-link">
-                    <i
-                      className="material-icons"
-                      style={{ verticalAlign: "middle" }}
+                  <Col sm={4} className="border text-center menu-link">
+                    <a
+                      href="https://www.linkedin.com/in/earl-cameron-9211a058/"
+                      style={{ textDecoration: "none", color: "white" }}
+                      target="_blank"
+                      rel="noopener noreferrer"
                     >
-                      rss_feed
-                    </i>
-                    <span className="ml-3">
-                      <a
-                        href={`http://rss.earlcameron.com`}
-                        className="noShowAnchor"
-                        target="new"
-                      >
-                        TTRSS
-                      </a>
-                    </span>
+                      <img
+                        src={linkedin}
+                        alt="github"
+                        className="img-fluid menu-link-img"
+                      />
+                      <span className="ml-3">LinkedIn</span>
+                    </a>
                   </Col>
-
-                  <Col sm={4} className="border menu-link">
-                    <i
-                      className="material-icons"
-                      style={{ verticalAlign: "middle" }}
+                  <Col sm={4} className="border text-center menu-link">
+                    <a
+                      href="https://twitter.com/monstercameron"
+                      style={{ textDecoration: "none", color: "white" }}
+                      target="_blank"
+                      rel="noopener noreferrer"
                     >
-                      short_text
-                    </i>
-                    <span className="ml-3">
-                      <a
-                        href={`http://blog.earlcameron.com`}
-                        className="noShowAnchor"
-                        target="new"
-                      >
-                        Blog
-                      </a>
-                    </span>
+                      <img
+                        src={twitter}
+                        alt="github"
+                        className="img-fluid menu-link-img"
+                      />
+                      <span className="ml-3">Twitter</span>
+                    </a>
                   </Col>
-
                   <Col
                     sm={4}
                     className="border menu-link"
