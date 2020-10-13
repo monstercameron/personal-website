@@ -247,6 +247,21 @@ class Main extends Component {
                           <span className="ml-3">Resume/Cv</span>
                         </Link>
                       </Col>
+
+                      <Col sm={4} className="border text-center menu-link">
+                        <Link
+                          to="/vic"
+                          style={{ textDecoration: "none", color: "white" }}
+                        >
+                          <span
+                            className="material-icons"
+                            style={{ verticalAlign: "middle" }}
+                          >
+                            directions_car
+                          </span>
+                          <span className="ml-3">Project Crown Vic</span>
+                        </Link>
+                      </Col>
                     </Row>
                   </Col>
                 </Row>
