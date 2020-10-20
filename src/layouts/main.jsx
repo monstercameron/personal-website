@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import { withRouter, Link } from "react-router-dom";
 import { Container, Row, Col, Modal } from "react-bootstrap";
+import logo_circle from '../assets/images/ec.png'
+import logo from '../assets/images/e_c_noring.png'
 import credits from "../assets/credits/credits";
 import github from "../assets/images/github-sign.png";
 import linkedin from "../assets/images/linkedin-logo.png";
@@ -103,29 +105,29 @@ class Main extends Component {
             <Row>
               <Col
                 sm={8}
-                className="rounded p-3 mt-2 mb-5 mx-auto text-white"
+                className="rounded p-2 mt-2 mb-5 mx-auto text-white"
                 style={{ backgroundColor: "rgba(50,50,255,.00)" }}
               >
                 <Row className="p-3">
                   <Col
-                    className="border p-3"
+                    className="border"
                     style={{ backgroundColor: "rgba(255,255,255,)" }}
                   >
                     <Row className="">
-                      <Col sm={11} className="">
-                        <h1
+                      <Col sm={11} className="p-0 m-0">
+                        <img src={logo_circle} alt="Earl Cameron personal website logo" height='200px'/>
+                        {/* <h1
                           style={{
                             fontFamily: "Great Vibes, cursive",
                             fontSize: "3rem",
                           }}
                         >
                           Earl Cameron
-                        </h1>
-                        <h5>Full Stack Developer</h5>
+                        </h1> */}
                       </Col>
-                      <Col>
+                      <Col className='pt-3'>
                         <Row>
-                          <Col sm={12} className="p-1">
+                          <Col sm={12} className="p-3">
                             <img
                               alt="jamaican"
                               src={jamaica}
@@ -134,7 +136,7 @@ class Main extends Component {
                               onClick={this.jamaica}
                             />
                           </Col>
-                          <Col sm={12} className="p-1">
+                          <Col sm={12} className="p-3">
                             <img
                               alt="confetti"
                               src={confetti}
