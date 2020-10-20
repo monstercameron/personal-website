@@ -9,7 +9,7 @@
     "ambient-cbg": "^1.0.4",
     "axios": "^0.19.2",
     "bootstrap": "^4.4.1",
-    "firebase": "^7.20.0",
+    "firebase": "^7.24.0",
     "gh-pages": "^2.2.0",
     "material-table": "^1.69.1",
     "react": "^16.13.0",
@@ -21,7 +21,8 @@
     "react-router-dom": "^5.1.2",
     "react-scripts": "^3.4.3",
     "react-sky": "^1.1.0",
-    "react-spinners": "^0.9.0"
+    "react-spinners": "^0.9.0",
+    "reading-time": "^1.2.0"
   },
   "scripts": {
     "start": "react-scripts start",

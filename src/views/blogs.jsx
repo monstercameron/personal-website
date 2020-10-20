@@ -49,14 +49,19 @@ const Blog = () => {
         }
         addPosts(docs && docs.docs.length >= 1 ? docs : posts);
       } else {
-        const docs = await db.collection(collection).orderBy('date').limit(limit).get();
+        const docs = await db
+          .collection(collection)
+          .orderBy("date")
+          .limit(limit)
+          .get();
         addPosts(docs);
       }
     } catch (error) {
       console.warn(error);
     }
   };
-  const displayPosts = (docs) => docs.map((doc) => <BuildPost key={doc.id} doc={doc} />);
+  const displayPosts = (docs) =>
+    docs.map((doc) => <BuildPost key={doc.id} doc={doc} />);
 
   //   console.log("page:", page);
   return (
@@ -95,14 +100,12 @@ const Blog = () => {
           </div>
           <div className="col-6">
             <div className="col-6">
-              <Link to="#content-top">
-                <button
-                  className="btn btn-block btn-outline-warning"
-                  onClick={getPosts(posts, "next")}
-                >
-                  next
-                </button>
-              </Link>
+              <button
+                className="btn btn-block btn-outline-warning"
+                onClick={getPosts(posts, "next")}
+              >
+                next
+              </button>
             </div>
           </div>
         </div>
