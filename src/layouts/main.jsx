@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { withRouter, Link } from "react-router-dom";
 import { Container, Row, Col, Modal } from "react-bootstrap";
 import logo_circle from '../assets/images/ec.png'
-import logo from '../assets/images/e_c_noring.png'
+import logo from '../assets/images/ec_noring.png'
 import credits from "../assets/credits/credits";
 import github from "../assets/images/github-sign.png";
 import linkedin from "../assets/images/linkedin-logo.png";
