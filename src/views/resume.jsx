@@ -21,11 +21,7 @@ const Resume = () => {
         </div>
         <div className="col-12">
           <p>
-            Educated and motivated software engineer, quick to ramp up with any
-            existing development platform. Design, code, debug and test
-            application and system software. Excellent interpersonal skills,
-            communication skills and enjoys a high pressure team environment.
-          </p>
+            As an experienced and driven software engineer, I adeptly adapt to new platforms. Proficient in designing, coding, debugging, and testing application and system software, I excel in high-pressure team environments with strong interpersonal and communication skills          </p>
         </div>
       </div>
       {/* skills */}
@@ -36,22 +32,23 @@ const Resume = () => {
         </div>
         <hr />
         <div className="col-12">
-          <div className="row">
+          <div className="row text-capitalize">
             <div className="col-4">
               <div className="row">
                 <div className="col-12 text-center">
                   <h6>Languages/frameworks/Libraries</h6>
-
                   <hr className="m-1" />
                 </div>
                 <div className="col-6">Node.js</div>
                 <div className="col-6">Express.js</div>
+                <div className="col-6">Angular</div>
                 <div className="col-6">React.js</div>
                 <div className="col-6">Jest.js</div>
                 <div className="col-6">Python</div>
                 <div className="col-6">Flask</div>
-                <div className="col-6">Jinja 2</div>
                 <div className="col-6">Bootstrap</div>
+                <div className="col-6">C# .NET</div>
+                <div className="col-6">C# Blazor</div>
               </div>
             </div>
             <div className="col-4">
@@ -79,6 +76,7 @@ const Resume = () => {
 
                   <hr className="m-1" />
                 </div>
+                <div className="col-6">vistual studio</div>
                 <div className="col-6">vistual studio code</div>
                 <div className="col-6">chrome inspector</div>
                 <div className="col-6">netbeans</div>
@@ -86,67 +84,9 @@ const Resume = () => {
                 <div className="col-6">terminal/bash</div>
                 <div className="col-6">GCP</div>
                 <div className="col-6">digital ocean</div>
-                <div className="col-6">heroku</div>
+                <div className="col-6">Debugging</div>
               </div>
             </div>
-          </div>
-        </div>
-      </div>
-      {/* project experience */}
-      <div className="row">
-        <div className="col-12 text-center mt-3">
-          <h5 className="text-capitalize">project experience</h5>
-          <hr className="m-1" />
-        </div>
-        <div className="col-12">
-          <div className="row">
-            <div className="col-6">People Budget</div>
-            <div className="col-6 text-right">
-              <a href="https://github.com/CodeforSouth/peoplebudget">
-                https://github.com/CodeforSouth/peoplebudget
-              </a>
-            </div>
-            <div className="col-12">
-              react, express, node, mysql, axios, git, REST
-            </div>
-            <div className="col-12 font-italic" style={{ fontSize: "10pt" }}>
-              "...As a Student Technical Lead for the project, he has led a
-              group of students who had no prior training or experience with
-              modern web-development tools like HTML, CSS, and Javascript
-              frameworks. Thanks to his efforts, the students are building
-              technical skillsets and projects for Code For South Florida is set
-              to deliver tool by the end of Q3 2020 that will serve as a
-              proof-of-concept for city leaders to implement participatory
-              budgeting tool in South Florida’s local government."
-            </div>
-            <div className="col-12">
-              <a href="https://codeforsouth.com/blog/civic-hacking-chronicles-earl-cameron-is-building-miamis-first-participatory-budgeting-tool/">
-                https://codeforsouth.com/blog/civic-hacking-chronicles-earl-cameron-is-building-miamis-first-participatory-budgeting-tool/
-              </a>
-            </div>
-          </div>
-        </div>
-        <div className="col-12 mt-3">
-          <div className="row">
-            <div className="col-6">
-              MDChem (MERN) |{" "}
-              <a href="https://www.mdchem.app/">www.mdchem.app/</a>
-            </div>
-            <div className="col-6 text-right">
-              <a href="https://github.com/monstercameron/mdchem-mern">
-                https://github.com/monstercameron/mdchem-mern
-              </a>
-            </div>
-            <div className="col-12">
-              mongo, express, react, node, c#, unity, rest, linode, linux
-            </div>
-            <div className="col-12 font-italic" style={{ fontSize: "10pt" }}>
-              "Students will learn chemistry concepts such as names of elements,
-              ions and compounds. As students progress through each level the
-              challenges become more and more intense. You will need all your
-              concentration to master MDChem."
-            </div>
-            <div className="col-12"></div>
           </div>
         </div>
       </div>
@@ -157,6 +97,33 @@ const Resume = () => {
           <hr className="m-1" />
         </div>
         <div className="col-12">
+          {/* UKG */}
+          <div className="row">
+            <div className="col-4 text-uppercase text-capitalize">
+              <h6>UKG | Software engineer</h6>
+            </div>
+            <div className="col-4 text-center">
+              <a href="https://www.ukg.com/">
+                https://www.ukg.com/
+              </a>
+            </div>
+            <div className="col-4 text-uppercase text-right">
+              <h6>2020-ongoing</h6>
+            </div>
+            <div className="col-12" style={{ fontSize: "10pt" }}>
+              Ultimate Software produces a world class, industry leading HCM
+              solution that is used by many top tier companies (including
+              Google).
+            </div>
+            <div className="col-12">
+              job duties:
+              <ul>
+                <li>Conducting research and troubleshooting to resolve intricate software issues</li>
+                <li>Delivering exceptional customer service to clients</li>
+                <li>Maintaining optimal availability of all services under my responsibility</li>
+              </ul>
+            </div>
+          </div>
           {/* ultimate software */}
           <div className="row">
             <div className="col-4 text-uppercase text-capitalize">
@@ -168,7 +135,7 @@ const Resume = () => {
               </a>
             </div>
             <div className="col-4 text-uppercase text-right">
-              <h6>oct/2019-ongoing</h6>
+              <h6>2019-2020</h6>
             </div>
             <div className="col-12" style={{ fontSize: "10pt" }}>
               Ultimate Software produces a world class, industry leading HCM
@@ -178,12 +145,9 @@ const Resume = () => {
             <div className="col-12">
               job duties:
               <ul>
-                <li>Researching and debugging complex issues</li>
-                <li>Providing excellent customer service experience</li>
-                <li>
-                  Making sure all services within my perview has the highest
-                  level of availability
-                </li>
+                <li>Investigating and resolving intricate issues related to cloud infrastructure</li>
+                <li>Ensuring outstanding customer service experience for clients</li>
+                <li>Maintaining the highest level of availability for all cloud services under my responsibility</li>
               </ul>
             </div>
           </div>
@@ -226,7 +190,7 @@ const Resume = () => {
               <h6>heytutor | tutor (HTML, CSS ,JAVASCRIPT)</h6>
             </div>
             <div className="col-4 text-center">
-              <a href="https://heytutor.com/">https://heytutor.com/</a>
+              <a href="https://heytutor.com/tutors/info/FL/Miami/ID13285-Earl-Cameron/">https://heytutor.com/EarlCameron</a>
             </div>
             <div className="col-4 text-uppercase text-right">
               <h6>contractor</h6>
@@ -253,7 +217,7 @@ const Resume = () => {
           <h5 className="mb-0">Education</h5>
           <hr className="m-1" />
         </div>
-        <div className="col-4">
+        <div className="col-3">
           <div className="row">
             <div className="col-12">LaunchCode Tech Bootcamp, Miami, FL</div>
             <div className="col-12">completed 2019</div>
@@ -264,22 +228,82 @@ const Resume = () => {
             </div>
           </div>
         </div>
-        <div className="col-4">
+        <div className="col-3">
           <div className="col-12">Miami Dade College, Miami, FL</div>
-          <div className="col-12">Ongoing</div>
+          <div className="col-12">Completed 2022</div>
           <div className="col-12">
             <a href="https://mdc.edu/">https://mdc.edu/</a>{" "}
           </div>
         </div>
-        <div className="col-4">
+        <div className="col-3">
+          <div className="col-12">Florida International University, Miami, FL</div>
+          <div className="col-12">BA CompSci ongoing</div>
+          <div className="col-12">
+            <a href="https://fiu.edu/">https://fiu.edu/</a>{" "}
+          </div>
+        </div>
+        <div className="col-3">
           <div className="col-12 text-capitalize">
-            intro to c++, visual basic, android 1/2, java, java/springboot
-            (launchcode), python/flask (launchcode)
+            Classes taken: intro to c++, visual basic, android 1/2, java, java/springboot, python/flask
+          </div>
+        </div>
+      </div>
+      {/* project experience */}
+      <div className="row">
+        <div className="col-12 text-center mt-3">
+          <h5 className="text-capitalize">project experience</h5>
+          <hr className="m-1" />
+        </div>
+        <div className="col-12">
+          <div className="row">
+            <div className="col-6">People Budget</div>
+            <div className="col-6 text-right">
+              <a href="https://github.com/CodeforSouth/peoplebudget">
+                https://github.com/CodeforSouth/peoplebudget
+              </a>
+            </div>
+            <div className="col-12 text-capitalize">
+              react, express, node, mysql, axios, git, REST
+            </div>
+            <div className="col-12 font-italic" style={{ fontSize: "10pt" }}>
+              "...As a Student Technical Lead for the project, he has led a
+              group of students who had no prior training or experience with
+              modern web-development tools like HTML, CSS, and Javascript
+              frameworks. Thanks to his efforts, the students are building
+              technical skillsets and projects for Code For South Florida is set
+              to deliver tool by the end of Q3 2020 that will serve as a
+              proof-of-concept for city leaders to implement participatory
+              budgeting tool in South Florida’s local government."
+            </div>
+            <div className="col-12">
+              <a href="https://codeforsouth.com/blog/civic-hacking-chronicles-earl-cameron-is-building-miamis-first-participatory-budgeting-tool/">
+                https://codeforsouth.com/blog/civic-hacking-chronicles-earl-cameron-is-building-miamis-first-participatory-budgeting-tool/
+              </a>
+            </div>
+          </div>
+        </div>
+        <div className="col-12 mt-3">
+          <div className="row">
+            <div className="col-6">
+              MetaHumanServer | <a href="https://github.com/monstercameron/MetaHumanServer">MetaHumanServer</a>
+            </div>
+            <div className="col-6 text-right">
+              <a href="https://github.com/monstercameron/mdchem-mern">
+                https://github.com/monstercameron/mdchem-mern
+              </a>
+            </div>
+            <div className="col-12 text-capitalize">
+              python, openai whisper, openai chatGPT, picovoice, flask
+            </div>
+            <div className="col-12 font-italic" style={{ fontSize: "10pt" }}>
+              This is an active software development project focused on advancing speech recognition and text-to-speech technologies through the creation and setup of various pipelines. The project directory contains subdirectories and files related to API server initialization, pipeline setup, image generation, and helper functions. Latency issues are being addressed.
+            </div>
+            <div className="col-12"></div>
           </div>
         </div>
       </div>
       {/* personal */}
-      <div className="row mt-2 text-capitalize">
+      {/* <div className="row mt-2 text-capitalize">
         <div className="col-12 text-center">
           <h5 className="mb-0">Interests/activites</h5>
           <hr className="m-1" />
@@ -302,7 +326,7 @@ const Resume = () => {
             <li>learning Japanese via Duolingo</li>
           </ul>
         </div>
-      </div>
+      </div> */}
     </div>
   );
 };

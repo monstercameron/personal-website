@@ -1,5 +1,6 @@
 import React, { Component } from "react";
-import myPicture1 from "../assets/images/me1.jpg";
+// import myPicture1 from "../assets/images/me1.jpg";
+import myPicture2 from "../assets/images/portrait2023.jpg";
 import logo from "../assets/images/ec_noring.png";
 class About extends Component {
   constructor(props) {
@@ -14,22 +15,9 @@ class About extends Component {
           style={{ backgroundColor: "rgba(255,255,255,.75)" }}
         >
           <div className="row">
-            <div className="col-8">
-              <h2>About Me:</h2>I like to build things. I enjoy thinking about
-              how systems should work, designing each component and how they
-              function in concert with each other. I go to all the major
-              hackathons and occasional meetups. I gain alot of exposure to new
-              software and techniques. I have completed the Launchcode bootcamp
-              which, in addition to self study, has given me a great foundation
-              for Web technologies. also me I am a quick study, love to learn
-              and employ new ideas and techniqes, and most importantly I am
-              passionate and dedicated to my craft. I am always up for a
-              challenge, and you can reach out to me directly via email,
-              mr.e.cameron@gmail.com
-            </div>
-            <div className="col-4">
+            <div className="col-md-4 col-sm-12">
               <img
-                src={myPicture1}
+                src={myPicture2}
                 alt=""
                 className="img-fluid rounded shadow img-thumbnail"
               />
@@ -37,8 +25,11 @@ class About extends Component {
                 src={logo}
                 alt=""
                 className="img-fluid rounded"
-                style={{ position: "absolute", left: "1px", bottom: "-100px" }}
+                style={{ position: "absolute", left: "1px", top: "50%" }}
               />
+            </div>
+            <div className="col-md-8 col-sm-12" style={{ fontSize: "1.25em" }}>
+              <h2>About Earl Cameron</h2>I am a builder at heart, passionate about conceptualizing and designing systems that work seamlessly in concert with each other. You'll often find me at major hackathons and meetups, eager to explore new software and techniques. With a solid foundation in web technologies from completing the Launchcode bootcamp, as well as extensive self-study, college courses and work experience. I am a quick learner and always eager to employ new ideas and techniques. Most importantly, I am dedicated to my craft and driven by a strong sense of passion. If you have a challenge in mind, feel free to reach out to me directly at mr.e.cameron@gmail.com - I'm always up for a new adventure!
             </div>
           </div>
         </div>

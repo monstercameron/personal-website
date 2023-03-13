@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { withRouter, Link } from "react-router-dom";
 import { Container, Row, Col, Modal } from "react-bootstrap";
 import logo_circle from '../assets/images/ec.png'
-import logo from '../assets/images/ec_noring.png'
+// import logo from '../assets/images/ec_noring.png'
 import credits from "../assets/credits/credits";
 import github from "../assets/images/github-sign.png";
 import linkedin from "../assets/images/linkedin-logo.png";
@@ -104,7 +104,10 @@ class Main extends Component {
           <Col>
             <Row>
               <Col
-                sm={8}
+                sm={12}
+                md={10}
+                lg={8}
+                xl={6}
                 className="rounded p-2 mt-2 mb-5 mx-auto text-white"
                 style={{ backgroundColor: "rgba(50,50,255,.00)" }}
               >
@@ -319,7 +322,7 @@ class Main extends Component {
                   </Col>
                   <Col
                     sm={4}
-                    className="border menu-link"
+                    className="border menu-link text-center"
                     onClick={this.handleShow}
                   >
                     <i
